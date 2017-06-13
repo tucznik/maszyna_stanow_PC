@@ -21,6 +21,7 @@ public:
 	uint16_t PobierzStan();
 	void Zdarzenie(uint16_t NowyStan, Param *Dane = NULL);
 	void ZdarzenieWewn(uint16_t NowyStan, Param *Dane);
+	virtual const char * PrzedstawSie() {return "Maszyna";}
 protected:
 	uint16_t StanBiezacy;
 private:

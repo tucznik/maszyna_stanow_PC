@@ -17,7 +17,7 @@ Uart::Uart()
 	Zdarzenie(ST_GOTOWY);
 }
 
-void Uart::ZD_NowyZnak(Param_Uart *Dane)
+void Uart::ZD_NowyZnak(Uart_Param *Dane)
 {
 	cout << "Odebrano nowy znak" << endl;
 	const uint16_t TAB_PRZEJSC[] =
@@ -29,12 +29,12 @@ void Uart::ZD_NowyZnak(Param_Uart *Dane)
 	};
 	Zdarzenie(TAB_PRZEJSC[StanBiezacy], Dane);
 }
-void Uart::ST_Gotowy(Param_Uart *Dane)
+void Uart::ST_Gotowy(Uart_Param *Dane)
 {
 	cout << "Stan: Gotowy" << endl;
 }
 
-void Uart::ST_OdebranyZnak(Param_Uart *Dane)
+void Uart::ST_OdebranyZnak(Uart_Param *Dane)
 {
 	buf[i++] = Dane->znak;
 	cout << "Stan: Odebrany znak, ";
@@ -43,7 +43,7 @@ void Uart::ST_OdebranyZnak(Param_Uart *Dane)
 	if(Dane->znak == 'x') Zdarzenie(ST_BLAD);
 }
 
-void Uart::ST_OdebranyString(Param_Uart *Dane)
+void Uart::ST_OdebranyString(Uart_Param *Dane)
 {
 	buf[i] = '\0';
 	cout << "Stan: Odebrany string, ";
@@ -52,23 +52,23 @@ void Uart::ST_OdebranyString(Param_Uart *Dane)
 	Zdarzenie(ST_GOTOWY, Dane);
 }
 
-void Uart::ST_Blad(Param_Uart *Dane)
+void Uart::ST_Blad(Uart_Param *Dane)
 {
 	cout << "Blad" << endl;
 	//Zdarzenie(ST_GOTOWY, Dane);
 }
 
-void Uart::ST_Wysylam(Param_Uart *Dane)
+void Uart::ST_Wysylam(Uart_Param *Dane)
 {
 	cout << "Wysylam..." << endl;
 }
 
-void Uart::ST_Nic(Param_Uart *Dane)
+void Uart::ST_Nic(Uart_Param *Dane)
 {
 	cout << "Nic" << endl;
 }
 
-void Uart::ST_Cos(Param_Uart *Dane)
+void Uart::ST_Cos(Uart_Param *Dane)
 {
 	cout << "Dupa" << endl;
 }

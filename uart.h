@@ -12,7 +12,7 @@
 #include "masz.h"
 using namespace std;
 
-class Param_Uart : public Param
+class Uart_Param : public Param
 {
 public:
 	uint8_t znak;
@@ -22,16 +22,16 @@ class Uart : public Maszyna
 {
 public:
 	Uart();
-	void ZD_NowyZnak(Param_Uart *Dane);
-	void ST_Gotowy(Param_Uart *Dane);
-	void ST_OdebranyZnak(Param_Uart *Dane);
-	void ST_OdebranyString(Param_Uart *Dane);
-	void ST_Blad(Param_Uart *Dane);
-	void ST_Wysylam(Param_Uart *Dane);
-	void ST_Nic(Param_Uart *Dane);
-	void ST_Cos(Param_Uart *Dane);
+	void ZD_NowyZnak(Uart_Param *Dane);
+	void ST_Gotowy(Uart_Param *Dane);
+	void ST_OdebranyZnak(Uart_Param *Dane);
+	void ST_OdebranyString(Uart_Param *Dane);
+	void ST_Blad(Uart_Param *Dane);
+	void ST_Wysylam(Uart_Param *Dane);
+	void ST_Nic(Uart_Param *Dane);
+	void ST_Cos(Uart_Param *Dane);
 private:
-	void (Uart::*wsk_f[10])(Param_Uart *Dane);
+	void (Uart::*wsk_f[10])(Uart_Param *Dane);
 	enum Stany {ST_GOTOWY = 0, ST_ODEBRANY_ZNAK, ST_ODEBRANY_STRING, ST_BLAD};
 	uint8_t i;
 	uint8_t buf[30];
