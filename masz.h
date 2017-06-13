@@ -19,7 +19,7 @@ class Maszyna
 public:
 	Maszyna();
 	uint16_t PobierzStan();
-	void Zdarzenie(uint16_t NowyStan, Param *Dane);
+	void Zdarzenie(uint16_t NowyStan, Param *Dane = NULL);
 	void ZdarzenieWewn(uint16_t NowyStan, Param *Dane);
 protected:
 	uint16_t StanBiezacy;

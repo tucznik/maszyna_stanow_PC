@@ -32,7 +32,7 @@ public:
 	void ST_Cos(Param_Uart *Dane);
 private:
 	void (Uart::*wsk_f[10])(Param_Uart *Dane);
-	enum Stany {ST_GOTOWY = 0, ST_ODEBRANY_ZNAK, ST_ODEBRANY_STRING, ST_BLAD, ST_WYSYLAM, ST_NIC, ST_COS};
+	enum Stany {ST_GOTOWY = 0, ST_ODEBRANY_ZNAK, ST_ODEBRANY_STRING, ST_BLAD};
 	uint8_t i;
 	uint8_t buf[30];
 };
