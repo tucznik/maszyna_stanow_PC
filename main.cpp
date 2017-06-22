@@ -13,20 +13,20 @@ TypMaszyny typ = TDynabox; 		// odczytywane z EEPROM
 
 int main()
 {
+	Lockerbox lockerbox;
+	Dynabox dynabox;
 	Maszyna *m;
 	switch (typ)
 	{
 		case TLockerbox:
 		{
-			Lockerbox_Param param;
-			Lockerbox lockerbox;
+
 			m = &lockerbox;
 		}
 		break;
 		case TDynabox:
 		{
-			Dynabox_Param param;
-			Dynabox dynabox;
+
 			m = &dynabox;
 		}
 		break;
@@ -37,25 +37,12 @@ int main()
 		break;
 	}
 
-	char znak;
-	Uart_Param Dane_Uart;
-	Uart uart;
+	m->ZmienStan(4);
+	cout << m->PobierzStan() << endl;
 	cout << m->PrzedstawSie() << endl;
-	uint16_t stan1, stan2;
-	//stan1 = uart.PobierzStan();
-
-	//Dane_Uart.znak = 'f';
-	//uart.ZD_NowyZnak(&Dane_Uart);
-	//stan1 = uart.PobierzStan();
-
-
-	//while(1)
-	//{
-		//cin >> znak;
-		//Dane_Uart.znak = znak;
-		//uart.ZD_NowyZnak(&Dane_Uart);
-	//}
-
+	m = &lockerbox;
+	cout << m->PobierzStan() << endl;
+	cout << m->PrzedstawSie() << endl;
 }
 
 

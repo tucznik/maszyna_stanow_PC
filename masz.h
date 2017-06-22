@@ -19,14 +19,15 @@ class Maszyna
 public:
 	Maszyna();
 	uint16_t PobierzStan();
+	void ZmienStan(uint16_t nowy_stan);
 	void Zdarzenie(uint16_t NowyStan, Param *Dane = NULL);
 	void ZdarzenieWewn(uint16_t NowyStan, Param *Dane);
-	virtual const char * PrzedstawSie() {return "Maszyna";}
+	virtual const char * PrzedstawSie() = 0;//{return "Maszyna";}
 protected:
 	uint16_t StanBiezacy;
 private:
 	bool JestZdarzenie;
-	void ZmienStan(uint16_t nowy_stan);
+
 	void SilnikStanow();
 	void (Maszyna::*wsk_f[])(Param *Dane);
 	enum Stany {ST_NIEDOZWOLONY = 0xFF};
